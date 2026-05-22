@@ -1,17 +1,54 @@
-﻿namespace Dsw2026Ej11.Tests;
+﻿using Dsw2026Ej11.Collections;
+using Dsw2026Ej11.Domain;
+
+namespace Dsw2026Ej11.Tests;
 
 
 internal class Ejemplos
 {
-    //Agregar 3 alumnos a la lista
-    //Listar por consola los alumnos
-    //Buscar por nombre un alumno que exista y mostrar por consola
-    //Buscar por nombre un alumno que no exista y mostrar por consola el texto "No existe"
-    //Eliminar un alumno y listar por consola los alumnos
-    //Eliminar el primer elemento de la lista y listar por consola los alumnos
+    
     public static void EjemploList()
     {
+        void ListarAlumnos(List<Alumno> alumnos) 
+        {
+            foreach (Alumno a in CasoList.GetAlumnos())
+            {
+                Console.WriteLine(a.ToString());
+            }
+        }
+        //Agregar 3 alumnos a la lista
+        var alu1 = new Alumno(1, "Chancaca", 9.9);
+        var alu2 = new Alumno(2, "Negro", 9.9);
+        var alu3 = new Alumno(3, "Bernabé", 7.7);
+        CasoList.Add(alu1);
+        CasoList.Add(alu2);
+        CasoList.Add(alu3);
 
+        //Listar por consola los alumnos
+        Console.WriteLine("----- Los alumnos presentes en la lista son -----\n");
+        ListarAlumnos(CasoList.GetAlumnos());
+
+        Console.WriteLine($"\nBuscando alumno...");
+        var alumnoExistente = CasoList.FindAlumno("Chancaca");
+        Console.WriteLine($"Se encontró al alumno {alumnoExistente.ToString()} ----\n");
+
+        //Buscar por nombre un alumno que no exista y mostrar por consola el texto "No existe"
+        Console.WriteLine($"\nBuscando alumno...");
+        var alumnoNoExistente = CasoList.FindAlumno("PlatanoPantanoPactanoPlacto");
+        if (alumnoNoExistente is null) Console.WriteLine("No existe");
+        else Console.WriteLine($"---- Se encontró al alumno {alumnoNoExistente.ToString()} ----");
+
+        //Eliminar un alumno y listar por consola los alumnos
+        Console.WriteLine($"\nEliminando alumno...");
+        CasoList.RemoveAlumno(alu3);
+        ListarAlumnos(CasoList.GetAlumnos());
+        Console.WriteLine($"\n---- El alumno fue eliminado...----\n");
+
+        //Eliminar el primer elemento de la lista y listar por consola los alumnos
+        Console.WriteLine($"\nEliminando alumno en la posición indicada...");
+        CasoList.RemoveAlumnoAt(0);
+        ListarAlumnos(CasoList.GetAlumnos());
+        Console.WriteLine($"\n---- El alumno fue eliminado...----\n");
     }
 
     //Agregar 3 alumnos al diccionario
