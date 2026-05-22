@@ -109,5 +109,60 @@ internal class Ejemplos
     public static void EjemploLinq()
     {
 
+        Console.WriteLine("1.- Obtener el primer libro");
+        Console.WriteLine($"El primer libro es: {CasoLinq.GetPrimero()?.ToString()}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("2.- Obtener el último libro");
+        Console.WriteLine($"El último libro es: {CasoLinq.GetUltimo()?.ToString()}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("3.- Obtener la suma de los precios");
+        Console.WriteLine($"La suma de precios es: {CasoLinq.GetTotalPrecios()}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("4.- Obtener el promedio de precios");
+        Console.WriteLine($"El promedio de precios es: {CasoLinq.GetPromedioPrecios():n2}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("5.- Obtener la lista de libros con Id mayor a 15");
+        Console.WriteLine("\nLa lista resultante es:");
+        foreach (var libro in CasoLinq.GetListById())
+        {
+            Console.WriteLine($"\t{libro.ToString()}");
+        }
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("6.- Obtener la lista de libros en el formato especificado");
+        Console.WriteLine("\nLa lista resultante es:");
+        foreach (var libro in CasoLinq.GetLibros())
+        {
+            Console.WriteLine($"\t{libro}");
+        }
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("7.- Obtener el libro con el precio más alto");
+        Console.WriteLine($"El libro con el precio más alto es: {CasoLinq.GetMayorPrecio()?.ToString()}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("8.- Obtener el libro con el precio más bajo");
+        Console.WriteLine($"El libro con el precio más bajo es: {CasoLinq.GetMenorPrecio()?.ToString()}");
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("9.- Obtener la lista de libros con un precio mayor al promedio");
+        Console.WriteLine("\nLa lista resultante es:");
+        foreach (var libro in CasoLinq.GetMayorPromedio())
+        {
+            Console.WriteLine($"\t{libro.ToString()}");
+        }
+        Console.WriteLine("---------------------------\n");
+
+        Console.WriteLine("10.- Obtener la lista de libros ordenados por título");
+        Console.WriteLine("\nLa lista resultante es:");
+        foreach (var libro in CasoLinq.GetLibrosOrdenados())
+        {
+            Console.WriteLine($"\t{libro.ToString()}");
+        }
+        Console.WriteLine("---------------------------\n");
     }
 }
